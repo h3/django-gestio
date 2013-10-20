@@ -49,7 +49,7 @@ class Gestio(Application):
 for app in GESTIO_INSTALLED_APPS:
     app_name = app.split('.')[-2]
    #setattr(Gestio, app_name, property(lambda s: __import__(app)))
-    setattr(Gestio, app_name, lambda s: __import__(app))
+    setattr(Gestio, app_name, lambda s: __import__('%s.app' % app))
     # TODO: dynamic URLs
 
 application = Gestio()
